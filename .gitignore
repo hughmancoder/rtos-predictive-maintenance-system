@@ -1,0 +1,80 @@
+# User / Task files
+TODO.md
+
+# Build outputs & artifacts
+build/
+Build/
+bin/
+obj/
+out/
+Debug/
+Release/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+*.cmake
+!CMakeLists.txt
+compile_commands.json
+.cache/
+
+# Embedded binaries & compilation files
+*.o
+*.obj
+*.d
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.elf
+*.bin
+*.hex
+*.srec
+*.map
+*.axf
+*.out
+*.lst
+
+# STM32CubeIDE / Eclipse / Keil / IAR
+.project
+.cproject
+.settings/
+*.launch
+*.uvgui.*
+*.uvopt*
+*.bak
+*.dep
+*.build_log.htm
+*.ewd
+
+# ESP-IDF / PlatformIO
+.pio/
+.pioenvs/
+.piolibdeps/
+sdkconfig.old
+dependencies.lock
+managed_components/
+
+# Editor & IDE artifacts
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+.clangd/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
