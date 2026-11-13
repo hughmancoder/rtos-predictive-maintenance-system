@@ -38,8 +38,7 @@ compile_commands.json
 *.lst
 
 # STM32CubeIDE / Eclipse / Keil / IAR
-.project
-.cproject
+# .project and .cproject are kept: CubeIDE needs them to import the project
 .settings/
 *.launch
 *.uvgui.*
@@ -53,17 +52,17 @@ compile_commands.json
 .pio/
 .pioenvs/
 .piolibdeps/
-sdkconfig.old
+sdkconfig
+sdkconfig.*
+!sdkconfig.defaults
 dependencies.lock
 managed_components/
+__pycache__/
+*.py[cod]
 
 # Editor & IDE artifacts
 .idea/
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+.vscode/
 *.swp
 *.swo
 *~

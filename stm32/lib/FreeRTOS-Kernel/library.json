@@ -1,0 +1,18 @@
+{
+  "name": "FreeRTOS-Kernel",
+  "version": "11.3.1",
+  "description": "FreeRTOS Kernel V11.3.1 (ARM_CM4F port, heap_4)",
+  "build": {
+    "includeDir": "include",
+    "flags": [
+      "-Iportable/GCC/ARM_CM4F",
+      "-I../../include"
+    ],
+    "srcFilter": [
+      "+<*.c>",
+      "+<portable/GCC/ARM_CM4F/port.c>",
+      "+<portable/MemMang/heap_4.c>"
+    ]
+  }
+}
+
