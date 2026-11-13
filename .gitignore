@@ -77,3 +77,6 @@ __pycache__/
 ehthumbs.db
 Thumbs.db
 
+
+# Datasets (downloaded with tools/fetch_mimii.py)
+data/
