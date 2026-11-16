@@ -26,6 +26,7 @@ void log_init(void) {
       .Speed = GPIO_SPEED_FREQ_VERY_HIGH,
       .Alternate = GPIO_AF7_USART2,
   };
+  
   HAL_GPIO_Init(GPIOA, &gpio);
 
   /*  Configure USART2: 115200 baud, 8 data bits, no parity, 1 stop bit */

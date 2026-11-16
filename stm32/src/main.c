@@ -31,7 +31,7 @@ int main(void) {
       xTaskCreate(led_task, "led", 128, NULL, tskIDLE_PRIORITY + 1, NULL);
   configASSERT(task == pdPASS);
 
-  // secon dcall creates a uart_log_task of 256 wods
+  // second call creates a uart_log_task of 256 wods
   task =
       xTaskCreate(uart_log_task, "log", 256, NULL, tskIDLE_PRIORITY + 1, NULL);
   configASSERT(task == pdPASS);
