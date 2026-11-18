@@ -4,6 +4,9 @@
  * HAL timebase: TIM11 (1 kHz), leaving SysTick exclusively for FreeRTOS.
  */
 #include "FreeRTOS.h"
+#include "i2c1_bus.h"
+#include "i2s_mic.h"
+#include "mpu6050.h"
 #include "stm32f4xx_hal.h"
 #include "task.h"
 #include "uart_log.h"
@@ -21,7 +24,11 @@ int main(void) {
   HAL_Init();
   SystemClock_Config();
   LED_Init();
+
+  // intialise i2s2 and dma streams
   log_init();
+  i2c1_bus_init();
+  i2s_mic_init();
 
   // Create the task with 256 words of stack. Each task spawns once independent
   // task/thread so it is called once per task. Higher number = higher priority
@@ -31,9 +38,17 @@ int main(void) {
       xTaskCreate(led_task, "led", 128, NULL, tskIDLE_PRIORITY + 1, NULL);
   configASSERT(task == pdPASS);
 
-  // second call creates a uart_log_task of 256 wods
+  // second call creates a uart_log_task of 256 words
   task =
       xTaskCreate(uart_log_task, "log", 256, NULL, tskIDLE_PRIORITY + 1, NULL);
+  configASSERT(task == pdPASS);
+
+  task =
+      xTaskCreate(mpu6050_task, "mpu", 512, NULL, tskIDLE_PRIORITY + 2, NULL);
+  configASSERT(task == pdPASS);
+
+  task =
+      xTaskCreate(i2s_mic_task, "mic", 256, NULL, tskIDLE_PRIORITY + 2, NULL);
   configASSERT(task == pdPASS);
 
   vTaskStartScheduler();
@@ -65,6 +80,7 @@ static void LED_Init(void) {
   HAL_GPIO_Init(LED_PORT, &gpio);
 }
 
+// Main CPU clock is 84 MHz
 static void SystemClock_Config(void) {
   RCC_OscInitTypeDef osc = {0};
   RCC_ClkInitTypeDef clk = {0};

@@ -10,4 +10,4 @@ bool i2c1_read(uint8_t dev_addr, uint8_t *data, uint16_t len);
 bool i2c1_write_reg(uint8_t dev_addr, uint8_t reg, uint8_t val);
 bool i2c1_read_regs(uint8_t dev_addr, uint8_t reg, uint8_t *buf, uint16_t len);
 
-#endif /* I2C1_BUS_H */
+#endif

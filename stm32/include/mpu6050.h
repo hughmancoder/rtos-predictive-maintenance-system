@@ -3,4 +3,4 @@
 
 void mpu6050_task(void *arg);
 
-#endif /* MPU6050_H */
+#endif
