@@ -29,6 +29,7 @@ int main(void) {
   log_init();
   i2c1_bus_init();
   i2s_mic_init();
+  mpu6050_init();
 
   // Create the task with 256 words of stack. Each task spawns once independent
   // task/thread so it is called once per task. Higher number = higher priority

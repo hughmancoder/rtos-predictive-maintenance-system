@@ -29,6 +29,6 @@ Reference diagrams: [Black Pill](docs/blackpill-pinout.png) ([PDF](docs/blackpil
 
 | Task | Function | Priority | Stack Size in Words | Period | Role |
 | --- | --- | --- | --- | --- | --- |
-| `mpu` | `mpu6050_task` | `tskIDLE_PRIORITY + 2 (Highest)` | 256 | 500 ms | Samples MPU6050 accelerometer over shared `I2C1` |
+| `mpu` | `mpu6050_task` | `tskIDLE_PRIORITY + 2 (Highest)` | 512 | 1 kHz (`TIM2`) | Samples MPU6050 accelerometer over shared `I2C1` |
 | `elog` | `uart_log_task` | `tskIDLE_PRIORITY + 1` | 256 | Event-driven | Flushes queued log messages over `USART2` |
 | `led` | `led_task` | `tskIDLE_PRIORITY + 1` | 128 | 500 ms | Blinks `PC13` heartbeat LED and logs, tick count |
